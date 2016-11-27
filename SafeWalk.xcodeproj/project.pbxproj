@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9372A7E71DEA972300E5D106 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9372A7E61DEA972300E5D106 /* MapKit.framework */; };
 		9375E8A21DEA8FCF00FD2FC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9375E8A11DEA8FCF00FD2FC1 /* AppDelegate.swift */; };
-		9375E8A41DEA8FCF00FD2FC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9375E8A31DEA8FCF00FD2FC1 /* ViewController.swift */; };
+		9375E8A41DEA8FCF00FD2FC1 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9375E8A31DEA8FCF00FD2FC1 /* RootViewController.swift */; };
 		9375E8A71DEA8FCF00FD2FC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9375E8A51DEA8FCF00FD2FC1 /* Main.storyboard */; };
 		9375E8A91DEA8FCF00FD2FC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9375E8A81DEA8FCF00FD2FC1 /* Assets.xcassets */; };
 		9375E8AC1DEA8FCF00FD2FC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9375E8AA1DEA8FCF00FD2FC1 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9372A7E61DEA972300E5D106 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9375E89E1DEA8FCF00FD2FC1 /* SafeWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9375E8A11DEA8FCF00FD2FC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9375E8A31DEA8FCF00FD2FC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9375E8A31DEA8FCF00FD2FC1 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		9375E8A61DEA8FCF00FD2FC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9375E8A81DEA8FCF00FD2FC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9375E8AB1DEA8FCF00FD2FC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -29,17 +31,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9372A7E71DEA972300E5D106 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9372A7E51DEA972300E5D106 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9372A7E61DEA972300E5D106 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9375E8951DEA8FCE00FD2FC1 = {
 			isa = PBXGroup;
 			children = (
 				9375E8A01DEA8FCF00FD2FC1 /* SafeWalk */,
 				9375E89F1DEA8FCF00FD2FC1 /* Products */,
+				9372A7E51DEA972300E5D106 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,7 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				9375E8A11DEA8FCF00FD2FC1 /* AppDelegate.swift */,
-				9375E8A31DEA8FCF00FD2FC1 /* ViewController.swift */,
+				9375E8A31DEA8FCF00FD2FC1 /* RootViewController.swift */,
 				9375E8A51DEA8FCF00FD2FC1 /* Main.storyboard */,
 				9375E8A81DEA8FCF00FD2FC1 /* Assets.xcassets */,
 				9375E8AA1DEA8FCF00FD2FC1 /* LaunchScreen.storyboard */,
@@ -136,7 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9375E8A41DEA8FCF00FD2FC1 /* ViewController.swift in Sources */,
+				9375E8A41DEA8FCF00FD2FC1 /* RootViewController.swift in Sources */,
 				9375E8A21DEA8FCF00FD2FC1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +309,7 @@
 				9375E8B21DEA8FCF00FD2FC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
