@@ -13,14 +13,17 @@ class LoginViewController: UIViewController {
   //
   // MARK: Instance variables
   //
-  let formMinWidth: CGFloat = 200
-  let formMaxWidth: CGFloat = 300
+  let formWidth: CGFloat = 350
   let formHeight: CGFloat = 200
+  let inputWidth: CGFloat = 200
+  let inputPadding: CGFloat = 20
+  let rowPadding: CGFloat = 5
+  let formPadding: CGFloat = 20
   
   var emailLabel: UILabel { return createFormLabel(text: "Email") }
-  let emailInput = UIInputView()
+  let emailInput = UITextField()
   var passwordLabel: UILabel { return createFormLabel(text: "Password") }
-  let passwordInput = UIInputView()
+  let passwordInput = UITextField()
   let loginButton = UIButton(type: .infoDark)
 
   
@@ -77,8 +80,8 @@ class LoginViewController: UIViewController {
   //
   private func createFormLabel(text: String!) -> UILabel {
     let view = UILabel()
+    
     view.text = text
-    view.sizeToFit()
     
     return view
   }
@@ -86,14 +89,18 @@ class LoginViewController: UIViewController {
   private func createFormRow(views: [UIView]) -> UIStackView {
     let view = UIStackView(arrangedSubviews: views)
     
-    view.distribution = .equalSpacing
     view.axis = .horizontal
-    view.spacing = 5.0
-    
+    view.alignment = .center
+    view.distribution = .fill
+    view.spacing = inputPadding
+
     return view
   }
   
   private func createFormView() -> UIView {
+    // Style input fields
+    styleInputs(views: [emailInput, passwordInput])
+    
     // Set up our view rows and subviews
     let emailView = createFormRow(views: [emailLabel, emailInput]) as UIView
     let passwordView = createFormRow(views: [passwordLabel, passwordInput]) as UIView
@@ -101,10 +108,12 @@ class LoginViewController: UIViewController {
     
     // Create the StackView
     let formView = UIStackView(arrangedSubviews: subviews)
+    formView.layoutMargins = UIEdgeInsetsMake(formPadding, formPadding, formPadding, formPadding)
     formView.translatesAutoresizingMaskIntoConstraints = false
+    formView.isLayoutMarginsRelativeArrangement = true
     formView.distribution = .equalSpacing
     formView.axis = .vertical
-    formView.spacing = 5.0
+    formView.spacing = rowPadding
 
     return formView
   }
@@ -115,13 +124,23 @@ class LoginViewController: UIViewController {
     bgView.backgroundColor = .lightGray
     bgView.translatesAutoresizingMaskIntoConstraints = false
 
-    let bgMinWidth = NSLayoutConstraint(item: bgView, attribute: .width, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: formMinWidth)
-    let bgMaxWidth = NSLayoutConstraint(item: bgView, attribute: .width, relatedBy: .lessThanOrEqual, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: formMaxWidth)
+    let bgWidth = NSLayoutConstraint(item: bgView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: formWidth)
     let bgHeight = NSLayoutConstraint(item: bgView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: formHeight)
     
-    bgView.addConstraints([bgMinWidth, bgMaxWidth, bgHeight])
+    bgView.addConstraints([bgWidth, bgHeight])
     
     return bgView
+  }
+  
+  private func styleInputs(views: [UITextField]){
+    // for loop
+    for view in views {
+      view.backgroundColor = .white
+
+      let width = NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: inputWidth)
+      
+      view.addConstraint(width)
+    }
   }
 }
 
