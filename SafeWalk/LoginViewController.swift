@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
   let emailInput = UITextField()
   var passwordLabel: UILabel { return createFormLabel(text: "Password") }
   let passwordInput = UITextField()
-  let loginButton = UIButton(type: .infoDark)
+  let loginButton = UIButton(type: .system)
 
   
   //
@@ -100,6 +100,7 @@ class LoginViewController: UIViewController {
   private func createFormView() -> UIView {
     // Style input fields
     styleInputs(views: [emailInput, passwordInput])
+    styleLoginButton(view: loginButton)
     
     // Set up our view rows and subviews
     let emailView = createFormRow(views: [emailLabel, emailInput]) as UIView
@@ -141,6 +142,11 @@ class LoginViewController: UIViewController {
       
       view.addConstraint(width)
     }
+  }
+  
+  private func styleLoginButton(view: UIButton){
+    view.setTitle("Login", for: .normal)
+    view.titleLabel?.font = .boldSystemFont(ofSize: 18.0)
   }
 }
 
