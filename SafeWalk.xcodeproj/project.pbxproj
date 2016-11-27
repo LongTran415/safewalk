@@ -15,6 +15,7 @@
 		9375E8A71DEA8FCF00FD2FC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9375E8A51DEA8FCF00FD2FC1 /* Main.storyboard */; };
 		9375E8A91DEA8FCF00FD2FC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9375E8A81DEA8FCF00FD2FC1 /* Assets.xcassets */; };
 		9375E8AC1DEA8FCF00FD2FC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9375E8AA1DEA8FCF00FD2FC1 /* LaunchScreen.storyboard */; };
+		937CF6E21DEACBB10062B14D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937CF6E11DEACBB10062B14D /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9375E8A81DEA8FCF00FD2FC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9375E8AB1DEA8FCF00FD2FC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9375E8AD1DEA8FCF00FD2FC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		937CF6E11DEACBB10062B14D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,15 +73,32 @@
 			isa = PBXGroup;
 			children = (
 				9375E8A11DEA8FCF00FD2FC1 /* AppDelegate.swift */,
-				9375E8A31DEA8FCF00FD2FC1 /* MapViewController.swift */,
+				937CF6E01DEACB670062B14D /* view controllers */,
+				937CF6DF1DEACB470062B14D /* resources */,
+			);
+			path = SafeWalk;
+			sourceTree = "<group>";
+		};
+		937CF6DF1DEACB470062B14D /* resources */ = {
+			isa = PBXGroup;
+			children = (
 				9375E8A51DEA8FCF00FD2FC1 /* Main.storyboard */,
 				9375E8A81DEA8FCF00FD2FC1 /* Assets.xcassets */,
 				9375E8AA1DEA8FCF00FD2FC1 /* LaunchScreen.storyboard */,
 				9375E8AD1DEA8FCF00FD2FC1 /* Info.plist */,
-				935A91211DEABA580096F3C8 /* RootViewController.swift */,
 				935A91231DEABCA50096F3C8 /* Development Notes.rtf */,
 			);
-			path = SafeWalk;
+			name = resources;
+			sourceTree = "<group>";
+		};
+		937CF6E01DEACB670062B14D /* view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9375E8A31DEA8FCF00FD2FC1 /* MapViewController.swift */,
+				935A91211DEABA580096F3C8 /* RootViewController.swift */,
+				937CF6E11DEACBB10062B14D /* LoginViewController.swift */,
+			);
+			name = "view controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				937CF6E21DEACBB10062B14D /* LoginViewController.swift in Sources */,
 				9375E8A41DEA8FCF00FD2FC1 /* MapViewController.swift in Sources */,
 				9375E8A21DEA8FCF00FD2FC1 /* AppDelegate.swift in Sources */,
 				935A91221DEABA580096F3C8 /* RootViewController.swift in Sources */,

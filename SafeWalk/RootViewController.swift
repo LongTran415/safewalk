@@ -18,6 +18,7 @@ class RootViewController: UINavigationController {
   
   override func didReceiveMemoryWarning() {
     // clean up if needed
+    super.didReceiveMemoryWarning()
   }
   
   private func setupInitialViewControllers() {

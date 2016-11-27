@@ -26,14 +26,28 @@ class MapViewController: UIViewController {
   }
   
   //
+  // MARK: View Actions
+  //
+  
+  func presentUserLogin() {
+    
+  }
+  
+  //
   // MARK: Initial View Setup
   //
   
   private func setupMapView() {
-    // create map view object
+    // Create a new view object, lay it out, and add to the page
+    //
+    // - Creates the map view object
+    // - Set flag for layout using constraints
+    // - Create the constraints
+    // - Add to the subview
+    // - Add the constraints
+    //
     let mapView = MKMapView()
     
-    // allow layout using constraints
     mapView.translatesAutoresizingMaskIntoConstraints = false
     
     let widthConstraint = NSLayoutConstraint(item: mapView, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 1, constant: 1)
@@ -50,7 +64,7 @@ class MapViewController: UIViewController {
     // - add to ui image view
     // - add to bar
     let loginImage = UIImage(named: "login")
-    let loginButton = UIBarButtonItem(image: loginImage, style: .plain, target: nil, action: nil)
+    let loginButton = UIBarButtonItem(image: loginImage, style: .plain, target: self, action: #selector(presentUserLogin))
     self.navigationItem.rightBarButtonItem = loginButton
   }
 }
