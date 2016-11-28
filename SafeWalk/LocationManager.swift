@@ -61,6 +61,14 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   // MARK: Instance Properties
   //
 
+  func coordinateString() -> String? {
+    if let coordinates = manager?.location?.coordinate {
+      return "lat: \(coordinates.latitude) long: \(coordinates.longitude)"
+    }
+    
+    return nil
+  }
+  
   
   // 
   // Lazy loaded CLLocationManager to use for setting up location services

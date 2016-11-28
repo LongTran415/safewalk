@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		930769821DEC6D1800A7DEF3 /* MapNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930769811DEC6D1800A7DEF3 /* MapNetworkController.swift */; };
 		931C84321DEBC830002B4B9F /* LoginNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C84311DEBC830002B4B9F /* LoginNetworkController.swift */; };
 		931C84341DEBD361002B4B9F /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C84331DEBD361002B4B9F /* NetworkSession.swift */; };
 		935A91221DEABA580096F3C8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A91211DEABA580096F3C8 /* RootViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		930769811DEC6D1800A7DEF3 /* MapNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapNetworkController.swift; sourceTree = "<group>"; };
 		931C84311DEBC830002B4B9F /* LoginNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNetworkController.swift; sourceTree = "<group>"; };
 		931C84331DEBD361002B4B9F /* NetworkSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		935A91211DEABA580096F3C8 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 				931C84311DEBC830002B4B9F /* LoginNetworkController.swift */,
 				931C84331DEBD361002B4B9F /* NetworkSession.swift */,
 				93EA5FD21DEC44EF00C18376 /* LocationManager.swift */,
+				930769811DEC6D1800A7DEF3 /* MapNetworkController.swift */,
 			);
 			name = network;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			files = (
 				931C84321DEBC830002B4B9F /* LoginNetworkController.swift in Sources */,
 				937CF6E21DEACBB10062B14D /* LoginViewController.swift in Sources */,
+				930769821DEC6D1800A7DEF3 /* MapNetworkController.swift in Sources */,
 				9375E8A41DEA8FCF00FD2FC1 /* MapViewController.swift in Sources */,
 				93EA5FD11DEC0D8C00C18376 /* String+capturedGroups.swift in Sources */,
 				93EA5FD31DEC44EF00C18376 /* LocationManager.swift in Sources */,

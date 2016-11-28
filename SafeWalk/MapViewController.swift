@@ -15,10 +15,16 @@ class MapViewController: UIViewController {
   // MARK: Instance Variables
   //
   
-  let walkFormHeight = 200.0 as CGFloat
+  let walkFormHeight = 350.0 as CGFloat
   
   var walkFormConstraint: NSLayoutConstraint?
   
+  var walkAddress: UITextField?
+  
+  var walkDate: UIDatePicker?
+  
+  let networkController = MapNetworkController()
+
 
   //
   // MARK: Default Overrides
@@ -44,6 +50,7 @@ class MapViewController: UIViewController {
   
   override func viewWillDisappear(_ animated: Bool) {
     dismissWalkForm()
+    self.navigationController?.setToolbarHidden(true, animated: true)
   }
   
   //
@@ -67,10 +74,19 @@ class MapViewController: UIViewController {
   
   func dismissWalkForm() {
     self.navigationController?.setToolbarHidden(false, animated: true)
-    self.walkFormConstraint?.constant = -200.0
+    self.walkFormConstraint?.constant = -walkFormHeight
 
     UIView.animate(withDuration: 0.3) {
       self.view.layoutIfNeeded()
+    }
+  }
+  
+  func submitWalkForm() {
+    
+    if let address = walkAddress?.text {
+      if let date = walkDate?.date {
+        networkController.submitWalk(address: address, date: date)
+      }
     }
   }
   
@@ -124,7 +140,7 @@ class MapViewController: UIViewController {
   private func setupWalkForm() {
     let walkForm = createWalkForm()
     let widthConstraint = NSLayoutConstraint(item: walkForm, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 1, constant: 1)
-    self.walkFormConstraint = NSLayoutConstraint(item: self.view, attribute: .bottom, relatedBy: .equal, toItem: walkForm, attribute: .bottom, multiplier: 1, constant: -200.0)
+    self.walkFormConstraint = NSLayoutConstraint(item: self.view, attribute: .bottom, relatedBy: .equal, toItem: walkForm, attribute: .bottom, multiplier: 1, constant: -walkFormHeight)
     
     self.view.addSubview(walkForm)
     self.view.addConstraints([widthConstraint, walkFormConstraint!])
@@ -133,18 +149,25 @@ class MapViewController: UIViewController {
   private func createWalkForm() -> UIView {
     let formPadding = 20 as CGFloat
     let input = UITextField()
+    let date = UIDatePicker()
     let submit = UIButton(type: .roundedRect)
     let cancel = UIButton(type: .roundedRect)
-    let form = UIStackView(arrangedSubviews: [input, submit, cancel])
+    let form = UIStackView(arrangedSubviews: [input, date, submit, cancel])
     let blurEffect = UIBlurEffect(style: .light)
     let view = UIVisualEffectView(effect: blurEffect)
     
     // Configure Input
+    walkAddress = input
     input.placeholder = "Address"
     input.backgroundColor = UIColor.white
     
+    // Configure Date
+    walkDate = date
+    date.datePickerMode = .dateAndTime
+    
     // Configure Submit
     submit.setTitle("Submit", for: .normal)
+    submit.addTarget(self, action: #selector(submitWalkForm), for: .touchUpInside)
     
     // Configure Cancel
     cancel.setTitle("Cancel", for: .normal)
