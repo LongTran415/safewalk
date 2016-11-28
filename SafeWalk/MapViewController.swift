@@ -30,7 +30,8 @@ class MapViewController: UIViewController {
   //
   
   func presentUserLogin() {
-    
+    let loginViewController = LoginViewController()
+    self.navigationController?.pushViewController(loginViewController, animated: true)
   }
   
   //
