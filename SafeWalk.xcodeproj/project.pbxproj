@@ -158,6 +158,7 @@
 				TargetAttributes = {
 					9375E89D1DEA8FCE00FD2FC1 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = JRK62S6ZMC;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -326,6 +327,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JRK62S6ZMC;
 				INFOPLIST_FILE = SafeWalk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = safewalk.com.SafeWalk;
@@ -338,6 +340,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JRK62S6ZMC;
 				INFOPLIST_FILE = SafeWalk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = safewalk.com.SafeWalk;

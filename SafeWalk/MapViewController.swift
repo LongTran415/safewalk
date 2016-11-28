@@ -19,6 +19,7 @@ class MapViewController: UIViewController {
     super.viewDidLoad()
     setupMapView()
     setupNavigationBar()
+    setupWalkButton()
   }
 
   override func didReceiveMemoryWarning() {
@@ -67,6 +68,12 @@ class MapViewController: UIViewController {
     let loginImage = UIImage(named: "login")
     let loginButton = UIBarButtonItem(image: loginImage, style: .plain, target: self, action: #selector(presentUserLogin))
     self.navigationItem.rightBarButtonItem = loginButton
+  }
+  
+  private func setupWalkButton() {
+    let button = UIBarButtonItem(title: "Request a Walk", style: .plain, target: nil, action: nil)
+    self.navigationController?.setToolbarHidden(false, animated: true)
+    self.setToolbarItems([button], animated: true)
   }
 }
 
