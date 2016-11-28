@@ -78,9 +78,9 @@ class LoginNetworkController {
         //
         self.session.dataTask(with: self.loginRequest) { (data, response, error) in
           // TODO: Doing nothing
-          print(response)
-          print(data)
-          print(error)
+          print(response ?? "")
+          print(data ?? "")
+          print(error ?? "")
         }.resume()
       }
     }.resume()

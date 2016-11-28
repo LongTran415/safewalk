@@ -19,6 +19,7 @@
 		9375E8AC1DEA8FCF00FD2FC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9375E8AA1DEA8FCF00FD2FC1 /* LaunchScreen.storyboard */; };
 		937CF6E21DEACBB10062B14D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937CF6E11DEACBB10062B14D /* LoginViewController.swift */; };
 		93EA5FD11DEC0D8C00C18376 /* String+capturedGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EA5FD01DEC0D8C00C18376 /* String+capturedGroups.swift */; };
+		93EA5FD31DEC44EF00C18376 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EA5FD21DEC44EF00C18376 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		9375E8AD1DEA8FCF00FD2FC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		937CF6E11DEACBB10062B14D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		93EA5FD01DEC0D8C00C18376 /* String+capturedGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+capturedGroups.swift"; sourceTree = "<group>"; };
+		93EA5FD21DEC44EF00C18376 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				931C84311DEBC830002B4B9F /* LoginNetworkController.swift */,
 				931C84331DEBD361002B4B9F /* NetworkSession.swift */,
+				93EA5FD21DEC44EF00C18376 /* LocationManager.swift */,
 			);
 			name = network;
 			sourceTree = "<group>";
@@ -153,7 +156,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = safewalk;
 				TargetAttributes = {
 					9375E89D1DEA8FCE00FD2FC1 = {
@@ -204,6 +207,7 @@
 				937CF6E21DEACBB10062B14D /* LoginViewController.swift in Sources */,
 				9375E8A41DEA8FCF00FD2FC1 /* MapViewController.swift in Sources */,
 				93EA5FD11DEC0D8C00C18376 /* String+capturedGroups.swift in Sources */,
+				93EA5FD31DEC44EF00C18376 /* LocationManager.swift in Sources */,
 				931C84341DEBD361002B4B9F /* NetworkSession.swift in Sources */,
 				9375E8A21DEA8FCF00FD2FC1 /* AppDelegate.swift in Sources */,
 				935A91221DEABA580096F3C8 /* RootViewController.swift in Sources */,
@@ -250,6 +254,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -299,6 +304,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

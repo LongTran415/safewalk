@@ -20,6 +20,7 @@ class MapViewController: UIViewController {
     setupMapView()
     setupNavigationBar()
     setupWalkButton()
+    zoomToCurrentLocation()
   }
 
   override func didReceiveMemoryWarning() {
@@ -33,6 +34,10 @@ class MapViewController: UIViewController {
   func presentUserLogin() {
     let loginViewController = LoginViewController()
     self.navigationController?.pushViewController(loginViewController, animated: true)
+  }
+  
+  func zoomToCurrentLocation() {
+    LocationManager.shared.manager?.startMonitoringSignificantLocationChanges()
   }
   
   //
@@ -49,6 +54,9 @@ class MapViewController: UIViewController {
     // - Add the constraints
     //
     let mapView = MKMapView()
+    
+    // Configure the mapView
+    mapView.setUserTrackingMode(.follow, animated: true)
     
     mapView.translatesAutoresizingMaskIntoConstraints = false
     
@@ -75,5 +83,6 @@ class MapViewController: UIViewController {
     self.navigationController?.setToolbarHidden(false, animated: true)
     self.setToolbarItems([button], animated: true)
   }
+  
 }
 
