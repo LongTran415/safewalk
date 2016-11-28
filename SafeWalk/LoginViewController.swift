@@ -73,6 +73,9 @@ class LoginViewController: UIViewController {
   //
   
   private func setupView(){
+    let blurEffect = UIBlurEffect(style: .dark)
+    self.view = UIVisualEffectView(effect: blurEffect)
+
     self.view.backgroundColor = .darkGray
     self.navigationItem.title = "Login"
   }
@@ -175,11 +178,6 @@ class LoginViewController: UIViewController {
     view.titleLabel?.font = .boldSystemFont(ofSize: 18.0)
     view.addTarget(self, action: #selector(login), for: .touchUpInside)
   }
-  
-  
-  //
-  // MARK: View Action Helper functions
-  //
 
 }
 

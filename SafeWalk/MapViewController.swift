@@ -10,6 +10,15 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController {
+  
+  //
+  // MARK: Instance Variables
+  //
+  
+  let walkFormHeight = 200.0 as CGFloat
+  
+  var walkFormConstraint: NSLayoutConstraint?
+  
 
   //
   // MARK: Default Overrides
@@ -20,11 +29,21 @@ class MapViewController: UIViewController {
     setupMapView()
     setupNavigationBar()
     setupWalkButton()
+    setupWalkForm()
     zoomToCurrentLocation()
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.navigationController?.setToolbarHidden(false, animated: true)
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    dismissWalkForm()
   }
   
   //
@@ -34,6 +53,25 @@ class MapViewController: UIViewController {
   func presentUserLogin() {
     let loginViewController = LoginViewController()
     self.navigationController?.pushViewController(loginViewController, animated: true)
+    self.navigationController?.setToolbarHidden(true, animated: true)
+  }
+
+  func presentWalkForm() {
+    self.navigationController?.setToolbarHidden(true, animated: true)
+    self.walkFormConstraint?.constant = 0.0
+    
+    UIView.animate(withDuration: 0.3) {
+      self.view.layoutIfNeeded()
+    }
+  }
+  
+  func dismissWalkForm() {
+    self.navigationController?.setToolbarHidden(false, animated: true)
+    self.walkFormConstraint?.constant = -200.0
+
+    UIView.animate(withDuration: 0.3) {
+      self.view.layoutIfNeeded()
+    }
   }
   
   func zoomToCurrentLocation() {
@@ -79,9 +117,61 @@ class MapViewController: UIViewController {
   }
   
   private func setupWalkButton() {
-    let button = UIBarButtonItem(title: "Request a Walk", style: .plain, target: nil, action: nil)
-    self.navigationController?.setToolbarHidden(false, animated: true)
+    let button = UIBarButtonItem(title: "Request a Walk", style: .plain, target: self, action: #selector(presentWalkForm))
     self.setToolbarItems([button], animated: true)
+  }
+  
+  private func setupWalkForm() {
+    let walkForm = createWalkForm()
+    let widthConstraint = NSLayoutConstraint(item: walkForm, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 1, constant: 1)
+    self.walkFormConstraint = NSLayoutConstraint(item: self.view, attribute: .bottom, relatedBy: .equal, toItem: walkForm, attribute: .bottom, multiplier: 1, constant: -200.0)
+    
+    self.view.addSubview(walkForm)
+    self.view.addConstraints([widthConstraint, walkFormConstraint!])
+  }
+  
+  private func createWalkForm() -> UIView {
+    let formPadding = 20 as CGFloat
+    let input = UITextField()
+    let submit = UIButton(type: .roundedRect)
+    let cancel = UIButton(type: .roundedRect)
+    let form = UIStackView(arrangedSubviews: [input, submit, cancel])
+    let blurEffect = UIBlurEffect(style: .light)
+    let view = UIVisualEffectView(effect: blurEffect)
+    
+    // Configure Input
+    input.placeholder = "Address"
+    input.backgroundColor = UIColor.white
+    
+    // Configure Submit
+    submit.setTitle("Submit", for: .normal)
+    
+    // Configure Cancel
+    cancel.setTitle("Cancel", for: .normal)
+    cancel.addTarget(self, action: #selector(dismissWalkForm), for: .touchUpInside)
+    
+    // Configure Form
+    form.axis = .vertical
+    form.alignment = .fill
+    form.distribution = .equalSpacing
+    form.translatesAutoresizingMaskIntoConstraints = false
+    form.layoutMargins = UIEdgeInsetsMake(formPadding, formPadding, formPadding, formPadding)
+    form.isLayoutMarginsRelativeArrangement = true
+    
+    let formHeightConstraint = NSLayoutConstraint(item: form, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: walkFormHeight)
+    let formWidthConstraint = NSLayoutConstraint(item: form, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1, constant: 1)
+    let formBottomConstraint = NSLayoutConstraint(item: form, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 1)
+    form.addConstraint(formHeightConstraint)
+    
+    // Configure view
+    view.translatesAutoresizingMaskIntoConstraints = false
+    
+    let viewHeightConstraint = NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: walkFormHeight)
+    
+    view.addSubview(form)
+    view.addConstraints([viewHeightConstraint, formWidthConstraint, formBottomConstraint])
+    
+    return view
   }
   
 }
