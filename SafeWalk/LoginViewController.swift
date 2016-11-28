@@ -13,6 +13,8 @@ class LoginViewController: UIViewController {
   //
   // MARK: Instance variables
   //
+
+  // View settings
   let formWidth: CGFloat = 350
   let formHeight: CGFloat = 200
   let inputWidth: CGFloat = 200
@@ -20,12 +22,15 @@ class LoginViewController: UIViewController {
   let rowPadding: CGFloat = 5
   let formPadding: CGFloat = 20
   
+  // View objects
   var emailLabel: UILabel { return createFormLabel(text: "Email") }
   let emailInput = UITextField()
   var passwordLabel: UILabel { return createFormLabel(text: "Password") }
   let passwordInput = UITextField()
   let loginButton = UIButton(type: .system)
 
+  // Network
+  let networkController = LoginNetworkController()
   
   //
   // MARK: Default Overrides
@@ -40,6 +45,28 @@ class LoginViewController: UIViewController {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
+
+  
+  //
+  // MARK: View Actions
+  //
+
+  func login() {
+    /*
+      hideView()
+      showSpinner()
+      makeLoginCall()
+      backToMapView()
+      changeUserIcon()
+   */
+    
+    // If the user has entered the email & password, attempt to login
+    if (emailInput.text?.characters.count)! > 0 && (passwordInput.text?.characters.count)! > 0 {
+      networkController.login(email: emailInput.text!, password: passwordInput.text!)
+    }
+    
+  }
+
   
   //
   // MARK: Initial View Setup
@@ -76,11 +103,10 @@ class LoginViewController: UIViewController {
   
   
   // 
-  // MARK: Helper functions
+  // MARK: View Creation Helper functions
   //
   private func createFormLabel(text: String!) -> UILabel {
     let view = UILabel()
-    
     view.text = text
     
     return view
@@ -122,6 +148,7 @@ class LoginViewController: UIViewController {
   private func createBackgroundView() -> UIView {
     // Create a containing view to set a background color
     let bgView = UIView()
+    
     bgView.backgroundColor = .lightGray
     bgView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -134,7 +161,6 @@ class LoginViewController: UIViewController {
   }
   
   private func styleInputs(views: [UITextField]){
-    // for loop
     for view in views {
       view.backgroundColor = .white
 
@@ -147,10 +173,13 @@ class LoginViewController: UIViewController {
   private func styleLoginButton(view: UIButton){
     view.setTitle("Login", for: .normal)
     view.titleLabel?.font = .boldSystemFont(ofSize: 18.0)
+    view.addTarget(self, action: #selector(login), for: .touchUpInside)
   }
+  
+  
+  //
+  // MARK: View Action Helper functions
+  //
+
 }
-
-
-
-
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		931C84321DEBC830002B4B9F /* LoginNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C84311DEBC830002B4B9F /* LoginNetworkController.swift */; };
+		931C84341DEBD361002B4B9F /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931C84331DEBD361002B4B9F /* NetworkSession.swift */; };
 		935A91221DEABA580096F3C8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935A91211DEABA580096F3C8 /* RootViewController.swift */; };
 		935A91241DEABCA50096F3C8 /* Development Notes.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 935A91231DEABCA50096F3C8 /* Development Notes.rtf */; };
 		9372A7E71DEA972300E5D106 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9372A7E61DEA972300E5D106 /* MapKit.framework */; };
@@ -16,9 +18,12 @@
 		9375E8A91DEA8FCF00FD2FC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9375E8A81DEA8FCF00FD2FC1 /* Assets.xcassets */; };
 		9375E8AC1DEA8FCF00FD2FC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9375E8AA1DEA8FCF00FD2FC1 /* LaunchScreen.storyboard */; };
 		937CF6E21DEACBB10062B14D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937CF6E11DEACBB10062B14D /* LoginViewController.swift */; };
+		93EA5FD11DEC0D8C00C18376 /* String+capturedGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EA5FD01DEC0D8C00C18376 /* String+capturedGroups.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		931C84311DEBC830002B4B9F /* LoginNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNetworkController.swift; sourceTree = "<group>"; };
+		931C84331DEBD361002B4B9F /* NetworkSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		935A91211DEABA580096F3C8 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		935A91231DEABCA50096F3C8 /* Development Notes.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "Development Notes.rtf"; sourceTree = "<group>"; };
 		9372A7E61DEA972300E5D106 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -30,6 +35,7 @@
 		9375E8AB1DEA8FCF00FD2FC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9375E8AD1DEA8FCF00FD2FC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		937CF6E11DEACBB10062B14D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		93EA5FD01DEC0D8C00C18376 /* String+capturedGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+capturedGroups.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +50,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		931C84301DEBC7E2002B4B9F /* network */ = {
+			isa = PBXGroup;
+			children = (
+				931C84311DEBC830002B4B9F /* LoginNetworkController.swift */,
+				931C84331DEBD361002B4B9F /* NetworkSession.swift */,
+			);
+			name = network;
+			sourceTree = "<group>";
+		};
 		9372A7E51DEA972300E5D106 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -73,7 +88,9 @@
 			isa = PBXGroup;
 			children = (
 				9375E8A11DEA8FCF00FD2FC1 /* AppDelegate.swift */,
+				931C84301DEBC7E2002B4B9F /* network */,
 				937CF6E01DEACB670062B14D /* view controllers */,
+				93EA5FCF1DEC0D7400C18376 /* extensions */,
 				937CF6DF1DEACB470062B14D /* resources */,
 			);
 			path = SafeWalk;
@@ -99,6 +116,14 @@
 				937CF6E11DEACBB10062B14D /* LoginViewController.swift */,
 			);
 			name = "view controllers";
+			sourceTree = "<group>";
+		};
+		93EA5FCF1DEC0D7400C18376 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				93EA5FD01DEC0D8C00C18376 /* String+capturedGroups.swift */,
+			);
+			name = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,8 +199,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				931C84321DEBC830002B4B9F /* LoginNetworkController.swift in Sources */,
 				937CF6E21DEACBB10062B14D /* LoginViewController.swift in Sources */,
 				9375E8A41DEA8FCF00FD2FC1 /* MapViewController.swift in Sources */,
+				93EA5FD11DEC0D8C00C18376 /* String+capturedGroups.swift in Sources */,
+				931C84341DEBD361002B4B9F /* NetworkSession.swift in Sources */,
 				9375E8A21DEA8FCF00FD2FC1 /* AppDelegate.swift in Sources */,
 				935A91221DEABA580096F3C8 /* RootViewController.swift in Sources */,
 			);
