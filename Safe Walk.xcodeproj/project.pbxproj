@@ -13,6 +13,9 @@
 		9358A87A1DEE70BF0062C8F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9358A8781DEE70BF0062C8F3 /* LaunchScreen.storyboard */; };
 		9358A8821DEE84BF0062C8F3 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A8811DEE84BF0062C8F3 /* MenuTableViewController.swift */; };
 		9358A8871DEE97F60062C8F3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A8861DEE97F60062C8F3 /* LoginViewController.swift */; };
+		9358A8891DEE9F410062C8F3 /* LoginNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A8881DEE9F410062C8F3 /* LoginNetworkController.swift */; };
+		9358A88E1DEEA0F20062C8F3 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A88D1DEEA0F20062C8F3 /* NetworkSession.swift */; };
+		9358A8911DEEA10F0062C8F3 /* String+capturedGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A8901DEEA10F0062C8F3 /* String+capturedGroups.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		9358A87B1DEE70BF0062C8F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9358A8811DEE84BF0062C8F3 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		9358A8861DEE97F60062C8F3 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9358A8881DEE9F410062C8F3 /* LoginNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNetworkController.swift; sourceTree = "<group>"; };
+		9358A88D1DEEA0F20062C8F3 /* NetworkSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
+		9358A8901DEEA10F0062C8F3 /* String+capturedGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+capturedGroups.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,50 @@
 		9358A86E1DEE70BF0062C8F3 /* Safe Walk */ = {
 			isa = PBXGroup;
 			children = (
+				9358A88F1DEEA1050062C8F3 /* extensions */,
+				9358A88A1DEE9F4A0062C8F3 /* network */,
+				9358A88B1DEE9F550062C8F3 /* view controllers */,
+				9358A88C1DEE9F7A0062C8F3 /* resources */,
+			);
+			path = "Safe Walk";
+			sourceTree = "<group>";
+		};
+		9358A88A1DEE9F4A0062C8F3 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				9358A88D1DEEA0F20062C8F3 /* NetworkSession.swift */,
+				9358A8881DEE9F410062C8F3 /* LoginNetworkController.swift */,
+			);
+			name = network;
+			sourceTree = "<group>";
+		};
+		9358A88B1DEE9F550062C8F3 /* view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9358A8811DEE84BF0062C8F3 /* MenuTableViewController.swift */,
+				9358A8861DEE97F60062C8F3 /* LoginViewController.swift */,
+			);
+			name = "view controllers";
+			sourceTree = "<group>";
+		};
+		9358A88C1DEE9F7A0062C8F3 /* resources */ = {
+			isa = PBXGroup;
+			children = (
 				9358A86F1DEE70BF0062C8F3 /* AppDelegate.swift */,
 				9358A8731DEE70BF0062C8F3 /* Main.storyboard */,
 				9358A8761DEE70BF0062C8F3 /* Assets.xcassets */,
 				9358A8781DEE70BF0062C8F3 /* LaunchScreen.storyboard */,
 				9358A87B1DEE70BF0062C8F3 /* Info.plist */,
-				9358A8811DEE84BF0062C8F3 /* MenuTableViewController.swift */,
-				9358A8861DEE97F60062C8F3 /* LoginViewController.swift */,
 			);
-			path = "Safe Walk";
+			name = resources;
+			sourceTree = "<group>";
+		};
+		9358A88F1DEEA1050062C8F3 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9358A8901DEEA10F0062C8F3 /* String+capturedGroups.swift */,
+			);
+			name = extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +182,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9358A8871DEE97F60062C8F3 /* LoginViewController.swift in Sources */,
+				9358A88E1DEEA0F20062C8F3 /* NetworkSession.swift in Sources */,
+				9358A8911DEEA10F0062C8F3 /* String+capturedGroups.swift in Sources */,
 				9358A8821DEE84BF0062C8F3 /* MenuTableViewController.swift in Sources */,
+				9358A8891DEE9F410062C8F3 /* LoginNetworkController.swift in Sources */,
 				9358A8701DEE70BF0062C8F3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
