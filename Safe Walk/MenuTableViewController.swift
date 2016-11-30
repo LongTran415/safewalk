@@ -17,7 +17,7 @@ class MenuTableViewController : UITableViewController {
   let menuOptions = ["Groups", "Walks", "Requests"]
   
   // Menu controllers -- keep in sync with menuOptions (same order)
-  let menuIdentifiers = ["GroupsViewController", "WalksViewController", "RequestsViewController"]
+  let menuIdentifiers = ["GroupsViewController", "WalksViewController", "WalksViewController"]
 
   
   //
