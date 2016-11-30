@@ -16,6 +16,10 @@
 		9358A8891DEE9F410062C8F3 /* LoginNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A8881DEE9F410062C8F3 /* LoginNetworkController.swift */; };
 		9358A88E1DEEA0F20062C8F3 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A88D1DEEA0F20062C8F3 /* NetworkSession.swift */; };
 		9358A8911DEEA10F0062C8F3 /* String+capturedGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A8901DEEA10F0062C8F3 /* String+capturedGroups.swift */; };
+		9358A8931DEEBF030062C8F3 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A8921DEEBF030062C8F3 /* GroupsViewController.swift */; };
+		9358A8951DEEBF0A0062C8F3 /* WalksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A8941DEEBF0A0062C8F3 /* WalksViewController.swift */; };
+		9358A8971DEEBF160062C8F3 /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A8961DEEBF160062C8F3 /* RequestsViewController.swift */; };
+		9358A89A1DEEC5460062C8F3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9358A8991DEEC5460062C8F3 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		9358A8881DEE9F410062C8F3 /* LoginNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginNetworkController.swift; sourceTree = "<group>"; };
 		9358A88D1DEEA0F20062C8F3 /* NetworkSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		9358A8901DEEA10F0062C8F3 /* String+capturedGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+capturedGroups.swift"; sourceTree = "<group>"; };
+		9358A8921DEEBF030062C8F3 /* GroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
+		9358A8941DEEBF0A0062C8F3 /* WalksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalksViewController.swift; sourceTree = "<group>"; };
+		9358A8961DEEBF160062C8F3 /* RequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
+		9358A8991DEEC5460062C8F3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9358A89A1DEEC5460062C8F3 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +57,7 @@
 			children = (
 				9358A86E1DEE70BF0062C8F3 /* Safe Walk */,
 				9358A86D1DEE70BF0062C8F3 /* Products */,
+				9358A8981DEEC5460062C8F3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +94,9 @@
 			children = (
 				9358A8811DEE84BF0062C8F3 /* MenuTableViewController.swift */,
 				9358A8861DEE97F60062C8F3 /* LoginViewController.swift */,
+				9358A8921DEEBF030062C8F3 /* GroupsViewController.swift */,
+				9358A8941DEEBF0A0062C8F3 /* WalksViewController.swift */,
+				9358A8961DEEBF160062C8F3 /* RequestsViewController.swift */,
 			);
 			name = "view controllers";
 			sourceTree = "<group>";
@@ -106,6 +119,14 @@
 				9358A8901DEEA10F0062C8F3 /* String+capturedGroups.swift */,
 			);
 			name = extensions;
+			sourceTree = "<group>";
+		};
+		9358A8981DEEC5460062C8F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9358A8991DEEC5460062C8F3 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,8 +206,11 @@
 				9358A88E1DEEA0F20062C8F3 /* NetworkSession.swift in Sources */,
 				9358A8911DEEA10F0062C8F3 /* String+capturedGroups.swift in Sources */,
 				9358A8821DEE84BF0062C8F3 /* MenuTableViewController.swift in Sources */,
+				9358A8971DEEBF160062C8F3 /* RequestsViewController.swift in Sources */,
 				9358A8891DEE9F410062C8F3 /* LoginNetworkController.swift in Sources */,
+				9358A8951DEEBF0A0062C8F3 /* WalksViewController.swift in Sources */,
 				9358A8701DEE70BF0062C8F3 /* AppDelegate.swift in Sources */,
+				9358A8931DEEBF030062C8F3 /* GroupsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
