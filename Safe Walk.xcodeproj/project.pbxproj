@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9319A61A1DEF069500434E44 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9319A6191DEF069500434E44 /* NetworkController.swift */; };
 		9358A8701DEE70BF0062C8F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A86F1DEE70BF0062C8F3 /* AppDelegate.swift */; };
 		9358A8751DEE70BF0062C8F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9358A8731DEE70BF0062C8F3 /* Main.storyboard */; };
 		9358A8771DEE70BF0062C8F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9358A8761DEE70BF0062C8F3 /* Assets.xcassets */; };
@@ -19,12 +20,14 @@
 		9358A8931DEEBF030062C8F3 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A8921DEEBF030062C8F3 /* GroupsViewController.swift */; };
 		9358A8951DEEBF0A0062C8F3 /* WalksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9358A8941DEEBF0A0062C8F3 /* WalksViewController.swift */; };
 		9358A89A1DEEC5460062C8F3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9358A8991DEEC5460062C8F3 /* MapKit.framework */; };
-		93630C131DEED75A00C47BF3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93630C121DEED75A00C47BF3 /* MapViewController.swift */; };
-		93630C151DEED76700C47BF3 /* MapNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93630C141DEED76700C47BF3 /* MapNetworkController.swift */; };
+		935C18D31DEFFBAF00269975 /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C18D21DEFFBAF00269975 /* LocationSearchTableViewController.swift */; };
+		935C18D61DF00F6000269975 /* LocationSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C18D51DF00F6000269975 /* LocationSearchDelegate.swift */; };
+		93630C151DEED76700C47BF3 /* WalksNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93630C141DEED76700C47BF3 /* WalksNetworkController.swift */; };
 		93630C171DEED7D000C47BF3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93630C161DEED7D000C47BF3 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9319A6191DEF069500434E44 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		9358A86C1DEE70BF0062C8F3 /* Safe Walk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Safe Walk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9358A86F1DEE70BF0062C8F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9358A8741DEE70BF0062C8F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,8 +42,9 @@
 		9358A8921DEEBF030062C8F3 /* GroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		9358A8941DEEBF0A0062C8F3 /* WalksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalksViewController.swift; sourceTree = "<group>"; };
 		9358A8991DEEC5460062C8F3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		93630C121DEED75A00C47BF3 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		93630C141DEED76700C47BF3 /* MapNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapNetworkController.swift; sourceTree = "<group>"; };
+		935C18D21DEFFBAF00269975 /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
+		935C18D51DF00F6000269975 /* LocationSearchDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchDelegate.swift; sourceTree = "<group>"; };
+		93630C141DEED76700C47BF3 /* WalksNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalksNetworkController.swift; sourceTree = "<group>"; };
 		93630C161DEED7D000C47BF3 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +82,7 @@
 			children = (
 				9358A88F1DEEA1050062C8F3 /* extensions */,
 				9358A88A1DEE9F4A0062C8F3 /* network */,
+				935C18D41DF00F3E00269975 /* protocol */,
 				9358A88B1DEE9F550062C8F3 /* view controllers */,
 				9358A88C1DEE9F7A0062C8F3 /* resources */,
 			);
@@ -88,9 +93,10 @@
 			isa = PBXGroup;
 			children = (
 				93630C161DEED7D000C47BF3 /* LocationManager.swift */,
-				93630C141DEED76700C47BF3 /* MapNetworkController.swift */,
+				93630C141DEED76700C47BF3 /* WalksNetworkController.swift */,
 				9358A88D1DEEA0F20062C8F3 /* NetworkSession.swift */,
 				9358A8881DEE9F410062C8F3 /* LoginNetworkController.swift */,
+				9319A6191DEF069500434E44 /* NetworkController.swift */,
 			);
 			name = network;
 			sourceTree = "<group>";
@@ -98,11 +104,11 @@
 		9358A88B1DEE9F550062C8F3 /* view controllers */ = {
 			isa = PBXGroup;
 			children = (
-				93630C121DEED75A00C47BF3 /* MapViewController.swift */,
 				9358A8811DEE84BF0062C8F3 /* MenuTableViewController.swift */,
 				9358A8861DEE97F60062C8F3 /* LoginViewController.swift */,
 				9358A8921DEEBF030062C8F3 /* GroupsViewController.swift */,
 				9358A8941DEEBF0A0062C8F3 /* WalksViewController.swift */,
+				935C18D21DEFFBAF00269975 /* LocationSearchTableViewController.swift */,
 			);
 			name = "view controllers";
 			sourceTree = "<group>";
@@ -133,6 +139,14 @@
 				9358A8991DEEC5460062C8F3 /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		935C18D41DF00F3E00269975 /* protocol */ = {
+			isa = PBXGroup;
+			children = (
+				935C18D51DF00F6000269975 /* LocationSearchDelegate.swift */,
+			);
+			name = protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,15 +222,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9319A61A1DEF069500434E44 /* NetworkController.swift in Sources */,
 				9358A8871DEE97F60062C8F3 /* LoginViewController.swift in Sources */,
 				9358A88E1DEEA0F20062C8F3 /* NetworkSession.swift in Sources */,
 				9358A8911DEEA10F0062C8F3 /* String+capturedGroups.swift in Sources */,
-				93630C131DEED75A00C47BF3 /* MapViewController.swift in Sources */,
+				935C18D31DEFFBAF00269975 /* LocationSearchTableViewController.swift in Sources */,
 				9358A8821DEE84BF0062C8F3 /* MenuTableViewController.swift in Sources */,
-				93630C151DEED76700C47BF3 /* MapNetworkController.swift in Sources */,
+				93630C151DEED76700C47BF3 /* WalksNetworkController.swift in Sources */,
 				9358A8891DEE9F410062C8F3 /* LoginNetworkController.swift in Sources */,
 				93630C171DEED7D000C47BF3 /* LocationManager.swift in Sources */,
 				9358A8951DEEBF0A0062C8F3 /* WalksViewController.swift in Sources */,
+				935C18D61DF00F6000269975 /* LocationSearchDelegate.swift in Sources */,
 				9358A8701DEE70BF0062C8F3 /* AppDelegate.swift in Sources */,
 				9358A8931DEEBF030062C8F3 /* GroupsViewController.swift in Sources */,
 			);

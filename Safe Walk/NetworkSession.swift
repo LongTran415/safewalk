@@ -13,7 +13,9 @@ class NetworkSession {
   //
   // MARK: Instance Variables
   //
-  var csrf: String?
+  var userId: Int?
+  
+  var sessionKey: String?
   
   //
   // MARK: Singleton Setup

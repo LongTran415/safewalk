@@ -93,7 +93,5 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     return manager
   }()
-
-  
   
 }
