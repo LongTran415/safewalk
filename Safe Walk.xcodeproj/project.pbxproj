@@ -22,6 +22,7 @@
 		9358A89A1DEEC5460062C8F3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9358A8991DEEC5460062C8F3 /* MapKit.framework */; };
 		935C18D31DEFFBAF00269975 /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C18D21DEFFBAF00269975 /* LocationSearchTableViewController.swift */; };
 		935C18D61DF00F6000269975 /* LocationSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C18D51DF00F6000269975 /* LocationSearchDelegate.swift */; };
+		935C18DB1DF0493900269975 /* WalkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C18DA1DF0493900269975 /* WalkCell.swift */; };
 		93630C151DEED76700C47BF3 /* WalksNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93630C141DEED76700C47BF3 /* WalksNetworkController.swift */; };
 		93630C171DEED7D000C47BF3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93630C161DEED7D000C47BF3 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		9358A8991DEEC5460062C8F3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		935C18D21DEFFBAF00269975 /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
 		935C18D51DF00F6000269975 /* LocationSearchDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchDelegate.swift; sourceTree = "<group>"; };
+		935C18DA1DF0493900269975 /* WalkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkCell.swift; sourceTree = "<group>"; };
 		93630C141DEED76700C47BF3 /* WalksNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalksNetworkController.swift; sourceTree = "<group>"; };
 		93630C161DEED7D000C47BF3 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 				9358A88A1DEE9F4A0062C8F3 /* network */,
 				935C18D41DF00F3E00269975 /* protocol */,
 				9358A88B1DEE9F550062C8F3 /* view controllers */,
+				935C18D91DF0492600269975 /* views */,
 				9358A88C1DEE9F7A0062C8F3 /* resources */,
 			);
 			path = "Safe Walk";
@@ -147,6 +150,14 @@
 				935C18D51DF00F6000269975 /* LocationSearchDelegate.swift */,
 			);
 			name = protocol;
+			sourceTree = "<group>";
+		};
+		935C18D91DF0492600269975 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				935C18DA1DF0493900269975 /* WalkCell.swift */,
+			);
+			name = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +245,7 @@
 				9358A8951DEEBF0A0062C8F3 /* WalksViewController.swift in Sources */,
 				935C18D61DF00F6000269975 /* LocationSearchDelegate.swift in Sources */,
 				9358A8701DEE70BF0062C8F3 /* AppDelegate.swift in Sources */,
+				935C18DB1DF0493900269975 /* WalkCell.swift in Sources */,
 				9358A8931DEEBF030062C8F3 /* GroupsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -76,9 +76,9 @@ class LocationSearchTableViewController : UITableViewController, UISearchControl
   // MARK: UITableViewDelegate
   //
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let placemark = matchingItems[indexPath.row].placemark
+    let mapItem = matchingItems[indexPath.row]
     
     tableView.deselectRow(at: indexPath, animated: true)
-    delegate?.didSelect(placemark: placemark)
+    delegate?.didSelect(mapItem: mapItem)
   }
 }

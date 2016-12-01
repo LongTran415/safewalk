@@ -9,7 +9,13 @@
 import UIKit
 import MapKit
 
-class WalksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UISearchBarDelegate, LocationSearchDelegate {
+class WalksViewController: UIViewController,
+  MKMapViewDelegate,
+  UITableViewDelegate,
+  UITableViewDataSource,
+  UITextFieldDelegate,
+  UISearchBarDelegate,
+  LocationSearchDelegate {
 
   //
   // MARK: Interface Outlets
@@ -21,6 +27,7 @@ class WalksViewController: UIViewController, UITableViewDelegate, UITableViewDat
   @IBOutlet weak var destinationInput: UITextField!
   @IBOutlet weak var timeInput: UITextField!
   @IBOutlet weak var groupInput: UITextField!
+  @IBOutlet weak var table: UITableView!
   
   //
   // MARK: Instance properties
@@ -38,6 +45,12 @@ class WalksViewController: UIViewController, UITableViewDelegate, UITableViewDat
   // The cell identifier to use for displaying our "+ Add Walk" in the table
   let addWalkCellIdentifier = "AddWalkCell"
   
+  // The cell identifier when we have no walks
+  let noWalkCellIdentifier = "PlaceholderCell"
+  
+  // The cell identifier for our walks
+  let walkCellIdentifier = "WalkCell"
+  
   // This moves the form view down by a certain amount as a hack
   // !!!: fix later
   let magicNumber = 40.0 as CGFloat
@@ -50,6 +63,9 @@ class WalksViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   // The object to use for fetching/saving our walks
   let networkController = WalksNetworkController()
+  
+  // Our JSON of walks fetched from the server
+  var walkJson: [String:AnyObject]?
 
   // The possible states for our Form
   enum FormState {
@@ -60,6 +76,13 @@ class WalksViewController: UIViewController, UITableViewDelegate, UITableViewDat
   
   // The current state of the Form
   var formState: FormState = .Hidden
+  
+  // The sections of our table
+  enum TableSections: Int {
+    case Add = 0
+    case Recent = 1
+    case Upcoming = 2
+  }
   
   
   //
@@ -207,7 +230,12 @@ class WalksViewController: UIViewController, UITableViewDelegate, UITableViewDat
       // Code for data goes here
       
       let dict = try! JSONSerialization.jsonObject(with: data!, options: [])
-      print(dict)
+      self.walkJson = dict as? [String:AnyObject]
+
+      DispatchQueue.main.async {
+        self.table.reloadData()
+      }
+      
     }, onFailure: { error in
       // Code for error goes here
     })
@@ -238,42 +266,143 @@ class WalksViewController: UIViewController, UITableViewDelegate, UITableViewDat
   //
   
   // Happens when making a selection on the location search
-  func didSelect(placemark: MKPlacemark) {
-    let selectedAddress = (placemark.addressDictionary?["FormattedAddressLines"] as! [String]).joined(separator: " ")
+  func didSelect(mapItem: MKMapItem) {
     searchController?.dismiss(animated: true, completion: nil)
     searchController?.searchBar.text = nil
-    lastSelectedInput?.text = selectedAddress
     hideSearch()
+    setLocationInputSelection(mapItem: mapItem)
   }
-
+  
   
   //
   // MARK: UITableViewDataSource
   //
+
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 3;
+  }
+  
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    switch TableSections(rawValue: section)! {
+
+    case .Add:
+      return ""
+    
+    case .Recent:
+      return "Recent Walks"
+    
+    case .Upcoming:
+      return "Upcoming Walks"
+    }
+  }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1;
+    switch TableSections(rawValue: section)! {
+    
+    case .Add:
+      return 1
+      
+    case .Recent:
+      guard
+        let walkJson = walkJson
+        else { return 1 }
+     
+      return walkJson["recent_walks"]!.count
+
+    case .Upcoming:
+      guard
+        let walkJson = walkJson
+        else { return 1 }
+      
+      return walkJson["upcoming_walks"]!.count
+    }
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: addWalkCellIdentifier)
-    
-    return cell ?? UITableViewCell()
-  }
+    let section = TableSections(rawValue: indexPath.section)!
 
+    // Return an add cell if we're in the add section
+    if (section == .Add) {
+      return tableView.dequeueReusableCell(withIdentifier: addWalkCellIdentifier) ?? UITableViewCell()
+    }
+    
+    // Return a placeholder if we have no data for our section
+    if (!tableHasDataFor(section: section)) {
+      return tableView.dequeueReusableCell(withIdentifier: noWalkCellIdentifier) ?? UITableViewCell()
+    }
+
+    // Return a full blownie if it's a normal row
+    if let json = walkJson {
+      let cell = tableView.dequeueReusableCell(withIdentifier: walkCellIdentifier) as! WalkCell
+      let key = jsonKeyFor(section: section)
+      let walks = json[key] as! [[String:AnyObject?]]
+      let walk = walks[indexPath.row]
+      
+      cell.walkTime.text = walk["walk_time"] as! String?
+      cell.startingLocation.text = walk["starting_location"] as! String?
+      cell.destination.text = walk["destination"] as! String?
+      
+      if section == .Recent {
+        cell.hideStatus = true
+      } else {
+        cell.isAccepted = walk["accepted"] as! Bool
+      }
+      
+      return cell
+    }
+    
+    return UITableViewCell()
+  }
+  
+  private func jsonKeyFor(section: TableSections) -> String {
+    switch section {
+    case .Recent:
+      return "recent_walks"
+    case .Upcoming:
+      return "upcoming_walks"
+    default:
+      return ""
+    }
+  }
+  
+  private func tableHasDataFor(section: TableSections) -> Bool {
+    let key = jsonKeyFor(section: section)
+    
+    guard
+      let walkJson = walkJson
+      else { return false }
+    
+    return walkJson[key]!.count > 0
+  }
+  
   
   //
   // MARK: UITableViewDelegate
   //
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let section = TableSections(rawValue: indexPath.section)
     tableView.deselectRow(at: indexPath, animated: true)
     
-    // If this is our AddWalk button
-    if (indexPath.section == 0 && indexPath.row == 0) {
+    if (section == .Add) {
       formState = .Presented
       relayoutView(animated: true)
     }
+    
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    let section = TableSections(rawValue: indexPath.section)!
+    
+    if (section == .Add) {
+      return tableView.rowHeight
+    }
+    
+    if tableHasDataFor(section: section) {
+      return 86;
+    }
+    
+    return tableView.rowHeight
   }
   
   //
@@ -294,4 +423,95 @@ class WalksViewController: UIViewController, UITableViewDelegate, UITableViewDat
   func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
     hideSearch()
   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  // MARK: WIP
+  enum LocationOptions {
+    case Source
+    case Destination
+  }
+  
+  var source: MKMapItem?
+  var dest: MKMapItem?
+  
+  private func setLocationInputSelection(mapItem: MKMapItem) {
+    let selectedAddress = (mapItem.placemark.addressDictionary?["FormattedAddressLines"] as! [String]).joined(separator: " ")
+    lastSelectedInput?.text = selectedAddress
+    
+    if (lastSelectedInput == startingLocationInput) {
+      source = mapItem
+    }
+    
+    if (lastSelectedInput == destinationInput) {
+      dest = mapItem
+    }
+    
+    clearMap()
+    addMapPins()
+    
+    guard
+      let source = source,
+      let dest = dest
+      else { return }
+    getDirections(source: source, destination: dest)
+  }
+  
+  private func clearMap() {
+    mapView.removeOverlays(mapView.overlays)
+    mapView.removeAnnotations(mapView.annotations)
+  }
+  
+  private func addMapPins() {
+    if let source = source { addMapPin(placemark: source.placemark, forType: .Source) }
+    if let dest = dest { addMapPin(placemark: dest.placemark, forType: .Destination) }
+  }
+  
+  private func addMapPin(placemark: MKPlacemark, forType: LocationOptions) {
+    let pin = MKPinAnnotationView(annotation: placemark, reuseIdentifier: nil)
+    
+    self.moveMapTo(coordinate: placemark.coordinate)
+    self.mapView.addAnnotation(pin.annotation!)
+  }
+  
+  private func moveMapTo(coordinate: CLLocationCoordinate2D) {
+    let span = MKCoordinateSpanMake(0.05, 0.05)
+    let region = MKCoordinateRegionMake(coordinate, span)
+    mapView.setRegion(region, animated: true)
+  }
+  
+  func getDirections(source: MKMapItem, destination: MKMapItem) {
+    let request = MKDirectionsRequest()
+    request.source = source
+    request.destination = destination
+    request.transportType = .walking
+    
+    let directions = MKDirections(request: request)
+    directions.calculate { (response, error) in
+      // TODO: Error handling
+      let route = response?.routes.first
+      
+      if let route = route {
+        self.mapView.add(route.polyline)
+      }
+    }
+  }
+  
+  func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+    if overlay is MKPolyline {
+      let lineView = MKPolylineRenderer(overlay: overlay)
+      lineView.strokeColor = UIColor.init(red: 0, green: 122, blue: 255, alpha: 0.6)
+      
+      return lineView
+    }
+    
+    return MKOverlayRenderer(overlay: overlay)
+  }
+  
 }
