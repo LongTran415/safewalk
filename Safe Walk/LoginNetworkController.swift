@@ -13,7 +13,7 @@ class LoginNetworkController:NetworkController {
   //
   // MARK: Public methods
   //
-  
+
   static func dummyLogin(_ onSuccess: @escaping () -> Void) {
     let controller = LoginNetworkController()
     controller.login(email: "long@gmail.com", password: "long", onSuccess: onSuccess, onFailure: { (_) in })

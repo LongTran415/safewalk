@@ -31,6 +31,10 @@ class MenuTableViewController : UITableViewController {
     self.navigationController?.pushViewController(controller, animated: true)
   }
   
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    let screenSize = UIApplication.shared.keyWindow!.screen.bounds.height - self.navigationController!.navigationBar.frame.height;
+    return (screenSize / 3) as CGFloat;
+  }
   
   //
   // MARK: UITableViewDataSource
@@ -44,6 +48,7 @@ class MenuTableViewController : UITableViewController {
     if let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTableCell") {
       let label = cell.viewWithTag(kCellLabelViewTag) as? UILabel
       label?.text = menuOptions[indexPath.row]
+      cell.contentView.layer.borderWidth = 10
       
       return cell
     } else {

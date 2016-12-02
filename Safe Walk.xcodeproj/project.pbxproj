@@ -26,6 +26,7 @@
 		93630C151DEED76700C47BF3 /* WalksNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93630C141DEED76700C47BF3 /* WalksNetworkController.swift */; };
 		93630C171DEED7D000C47BF3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93630C161DEED7D000C47BF3 /* LocationManager.swift */; };
 		93F75BC51DF10E97005E7968 /* GroupNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F75BC41DF10E97005E7968 /* GroupNetworkController.swift */; };
+		93F75BC71DF18CCA005E7968 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F75BC61DF18CCA005E7968 /* GroupCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		93630C141DEED76700C47BF3 /* WalksNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalksNetworkController.swift; sourceTree = "<group>"; };
 		93630C161DEED7D000C47BF3 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		93F75BC41DF10E97005E7968 /* GroupNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupNetworkController.swift; sourceTree = "<group>"; };
+		93F75BC61DF18CCA005E7968 /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				935C18DA1DF0493900269975 /* WalkCell.swift */,
+				93F75BC61DF18CCA005E7968 /* GroupCell.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				935C18D31DEFFBAF00269975 /* LocationSearchTableViewController.swift in Sources */,
 				9358A8821DEE84BF0062C8F3 /* MenuTableViewController.swift in Sources */,
 				93630C151DEED76700C47BF3 /* WalksNetworkController.swift in Sources */,
+				93F75BC71DF18CCA005E7968 /* GroupCell.swift in Sources */,
 				9358A8891DEE9F410062C8F3 /* LoginNetworkController.swift in Sources */,
 				93630C171DEED7D000C47BF3 /* LocationManager.swift in Sources */,
 				9358A8951DEEBF0A0062C8F3 /* WalksViewController.swift in Sources */,

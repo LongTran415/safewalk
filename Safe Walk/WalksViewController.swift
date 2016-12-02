@@ -127,16 +127,17 @@ class WalksViewController: UIViewController,
     let date = datePicker?.date
     
     networkController.submitWalk(startingLocation: startingLocationInput.text, destination: destinationInput.text, walkTime: date, onSuccess: {
-      print("suxxeaa")
+      print("Walk created successfully")
+      self.submitComplete()
     }, onFailure: { message in
-      print("failuea")
+      print("Walk failure :(")
       print(message)
     })
     
     formState = .Hidden
     relayoutView(animated: true)
   }
-
+  
   //
   // MARK: Programatic View Actions
   //
@@ -208,6 +209,7 @@ class WalksViewController: UIViewController,
   private func setupFormView() {
     let timeDatePicker = UIDatePicker()
     timeInput.inputView = timeDatePicker
+    
 //    timeInput.addTarget(self, action: #selector(WalksViewController.editingDidEnd(_:)), for: .editingDidEnd)
 //    timeInput.addTarget(self, action: #selector(WalksViewController.editingDidBegin(_:)), for: .editingDidBegin)
   }
@@ -514,4 +516,22 @@ class WalksViewController: UIViewController,
     return MKOverlayRenderer(overlay: overlay)
   }
   
+  private func submitComplete() {
+    var dict = [String:AnyObject]()
+    dict["walk_time"] = self.timeInput.text as AnyObject?
+    dict["starting_location"] = self.startingLocationInput.text as AnyObject?
+    dict["destination"] = self.destinationInput.text as AnyObject?
+    
+    DispatchQueue.main.async {
+      self.timeInput.text = nil
+      self.startingLocationInput.text = nil
+      self.destinationInput.text = nil
+      self.source = nil
+      self.dest = nil
+      self.clearMap()
+      let index = IndexPath(row: 0, section: 0)
+      self.getUserWalks()
+      self.table.scrollToRow(at: index, at: .top, animated: true)
+    }
+  }
 }

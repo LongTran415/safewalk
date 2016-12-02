@@ -10,6 +10,22 @@ import Foundation
 
 class GroupNetworkController:NetworkController {
   
+  func getUserGroups(onSuccess: @escaping (_ data: Data?) -> Void, onFailure: @escaping (_
+    errorMessage: String) -> Void) {
+    
+    let request = templateGetAuthRequest(urlString: "http://localhost:3000/api/users/\(network.userId!)/groups")
+    
+    self.session.dataTask(with: request) { (data, response, error) -> Void in
+      let httpResponse = response as? HTTPURLResponse
+      
+      if httpResponse?.statusCode == 200 {
+        onSuccess(data)
+      } else {
+        onFailure("Failed to get Groups :(")
+      }
+    }.resume()
+  }
+  
   func createGroup(name: String, location: String, description: String, onSuccess: @escaping () -> Void, onFailure: @escaping (_ _errorMessage: String) -> Void) {
     // params
     let params: [String:String] = ["name": name, "location": location, "description": description]
