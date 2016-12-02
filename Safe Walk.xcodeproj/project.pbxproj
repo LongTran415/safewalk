@@ -25,6 +25,7 @@
 		935C18DB1DF0493900269975 /* WalkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C18DA1DF0493900269975 /* WalkCell.swift */; };
 		93630C151DEED76700C47BF3 /* WalksNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93630C141DEED76700C47BF3 /* WalksNetworkController.swift */; };
 		93630C171DEED7D000C47BF3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93630C161DEED7D000C47BF3 /* LocationManager.swift */; };
+		93F75BC51DF10E97005E7968 /* GroupNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F75BC41DF10E97005E7968 /* GroupNetworkController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		935C18DA1DF0493900269975 /* WalkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkCell.swift; sourceTree = "<group>"; };
 		93630C141DEED76700C47BF3 /* WalksNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalksNetworkController.swift; sourceTree = "<group>"; };
 		93630C161DEED7D000C47BF3 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		93F75BC41DF10E97005E7968 /* GroupNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupNetworkController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				9358A88D1DEEA0F20062C8F3 /* NetworkSession.swift */,
 				9358A8881DEE9F410062C8F3 /* LoginNetworkController.swift */,
 				9319A6191DEF069500434E44 /* NetworkController.swift */,
+				93F75BC41DF10E97005E7968 /* GroupNetworkController.swift */,
 			);
 			name = network;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				9358A8701DEE70BF0062C8F3 /* AppDelegate.swift in Sources */,
 				935C18DB1DF0493900269975 /* WalkCell.swift in Sources */,
 				9358A8931DEEBF030062C8F3 /* GroupsViewController.swift in Sources */,
+				93F75BC51DF10E97005E7968 /* GroupNetworkController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

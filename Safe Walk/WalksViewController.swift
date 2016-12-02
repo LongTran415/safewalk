@@ -80,8 +80,8 @@ class WalksViewController: UIViewController,
   // The sections of our table
   enum TableSections: Int {
     case Add = 0
-    case Recent = 1
-    case Upcoming = 2
+    case Upcoming = 1
+    case Recent = 2
   }
   
   
@@ -333,7 +333,7 @@ class WalksViewController: UIViewController,
 
     // Return a full blownie if it's a normal row
     if let json = walkJson {
-      let cell = tableView.dequeueReusableCell(withIdentifier: walkCellIdentifier) as! WalkCell
+      let cell = tableView.dequeueReusableCell(withIdentifier: self.walkCellIdentifier) as! WalkCell
       let key = jsonKeyFor(section: section)
       let walks = json[key] as! [[String:AnyObject?]]
       let walk = walks[indexPath.row]

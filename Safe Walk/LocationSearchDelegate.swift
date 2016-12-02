@@ -11,6 +11,7 @@ import MapKit
 
 protocol LocationSearchDelegate {
   
-  func didSelect(placemark: MKPlacemark)
+  func didSelect(mapItem: MKMapItem)
+  
   
 }

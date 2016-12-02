@@ -32,7 +32,7 @@ class WalksNetworkController:NetworkController {
     self.session.dataTask(with: request) { (data, response, error) -> Void in
       let httpResponse = response as? HTTPURLResponse
       
-      if httpResponse?.statusCode == 200 {
+      if httpResponse?.statusCode == 201 {
         onSuccess()
       } else {
         onFailure("Failed to post a walk")
