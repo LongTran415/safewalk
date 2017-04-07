@@ -20,6 +20,13 @@ class MenuTableViewController : UITableViewController {
   let menuIdentifiers = ["GroupsViewController", "WalksViewController", "WalksViewController"]
 
   
+  override func viewDidLoad() {
+    let image = UIImage(named: "Image-3", in: Bundle.main, compatibleWith: nil)
+    let newImage = image?.imageScaledToSize(CGSize(width: 1100, height: 800))
+    let imageView = UIImageView(image: newImage)
+    self.view.insertSubview(imageView, at: 0)
+  }
+  
   //
   // MARK: UITableViewDelegate
   //
@@ -27,14 +34,14 @@ class MenuTableViewController : UITableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let identifier = menuIdentifiers[indexPath.row]
     let controller = self.navigationController?.storyboard?.instantiateViewController(withIdentifier: identifier) ?? UIViewController()
-    
+  
+    // deselect table row
+    tableView.deselectRow(at: indexPath, animated: true)
+
     self.navigationController?.pushViewController(controller, animated: true)
   }
   
-  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    let screenSize = UIApplication.shared.keyWindow!.screen.bounds.height - self.navigationController!.navigationBar.frame.height;
-    return (screenSize / 3) as CGFloat;
-  }
+ 
   
   //
   // MARK: UITableViewDataSource
@@ -45,10 +52,16 @@ class MenuTableViewController : UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
     if let cell = tableView.dequeueReusableCell(withIdentifier: "MenuTableCell") {
+      
+      cell.selectedBackgroundView = UIView(frame: cell.frame)
+      cell.selectedBackgroundView?.backgroundColor = .black
+      
+      
       let label = cell.viewWithTag(kCellLabelViewTag) as? UILabel
       label?.text = menuOptions[indexPath.row]
-      cell.contentView.layer.borderWidth = 10
+      label?.font = UIFont(name: "Futura", size: 30)
       
       return cell
     } else {
@@ -58,3 +71,15 @@ class MenuTableViewController : UITableViewController {
   }
   
 }
+
+
+
+
+
+
+
+
+
+
+
+

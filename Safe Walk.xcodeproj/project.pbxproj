@@ -25,6 +25,7 @@
 		935C18DB1DF0493900269975 /* WalkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 935C18DA1DF0493900269975 /* WalkCell.swift */; };
 		93630C151DEED76700C47BF3 /* WalksNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93630C141DEED76700C47BF3 /* WalksNetworkController.swift */; };
 		93630C171DEED7D000C47BF3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93630C161DEED7D000C47BF3 /* LocationManager.swift */; };
+		9380D3411E97347F00052ED2 /* UIImage+imageScaledToSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9380D3401E97347F00052ED2 /* UIImage+imageScaledToSize.swift */; };
 		93F75BC51DF10E97005E7968 /* GroupNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F75BC41DF10E97005E7968 /* GroupNetworkController.swift */; };
 		93F75BC71DF18CCA005E7968 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F75BC61DF18CCA005E7968 /* GroupCell.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		935C18DA1DF0493900269975 /* WalkCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkCell.swift; sourceTree = "<group>"; };
 		93630C141DEED76700C47BF3 /* WalksNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalksNetworkController.swift; sourceTree = "<group>"; };
 		93630C161DEED7D000C47BF3 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		9380D3401E97347F00052ED2 /* UIImage+imageScaledToSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+imageScaledToSize.swift"; sourceTree = "<group>"; };
 		93F75BC41DF10E97005E7968 /* GroupNetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupNetworkController.swift; sourceTree = "<group>"; };
 		93F75BC61DF18CCA005E7968 /* GroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				9358A8901DEEA10F0062C8F3 /* String+capturedGroups.swift */,
+				9380D3401E97347F00052ED2 /* UIImage+imageScaledToSize.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				93F75BC71DF18CCA005E7968 /* GroupCell.swift in Sources */,
 				9358A8891DEE9F410062C8F3 /* LoginNetworkController.swift in Sources */,
 				93630C171DEED7D000C47BF3 /* LocationManager.swift in Sources */,
+				9380D3411E97347F00052ED2 /* UIImage+imageScaledToSize.swift in Sources */,
 				9358A8951DEEBF0A0062C8F3 /* WalksViewController.swift in Sources */,
 				935C18D61DF00F6000269975 /* LocationSearchDelegate.swift in Sources */,
 				9358A8701DEE70BF0062C8F3 /* AppDelegate.swift in Sources */,
